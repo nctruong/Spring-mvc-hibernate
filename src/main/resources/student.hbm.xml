@@ -3,19 +3,28 @@
 "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="model.Student" table="students">
+	<class name="model.Student" table="student">
         <id name="id" type="int">
             <column name="student_id" />
             <generator class="increment" />
         </id>
-        <property name="fullName" type="string">
-            <column name="fullname" />
+        <property name="firstName" type="string">
+            <column name="firstName" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="lastName" />
+        </property>
+        <property name="age" type="string">
+            <column name="age" />
         </property>
         <property name="sex" type="string">
             <column name="sex" />
         </property>
-        <property name="address" type="string">
-            <column name="address" />
+        <property name="username" type="string">
+            <column name="username" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" />
         </property>
     </class>
 </hibernate-mapping>

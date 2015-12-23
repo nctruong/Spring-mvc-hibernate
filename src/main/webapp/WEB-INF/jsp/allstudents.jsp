@@ -34,15 +34,15 @@
 		<tr>
 			<td>NAME</td>
 			<td>Sex</td>
-			<td>Address</td>
+			<td>Age</td>
 			<td></td>
 			<td></td>
 		</tr>
 		<c:forEach items="${students}" var="student">
 			<tr>
-			<td>${student.fullName}</td>
+			<td>${student.firstName}</td>
 			<td>${student.sex}</td>
-			<td>${student.address}</td>
+			<td>${student.age}</td>
 			<td><a href="<c:url value='/edit-${student.id}-student' />">edit</a></td>
 			<td><a href="<c:url value='/delete-${student.id}-student' />">delete</a></td>
 			</tr>

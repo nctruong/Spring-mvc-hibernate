@@ -18,8 +18,8 @@ import service.StudentService;
 
 
 @Controller
-@RequestMapping("/")
-public class StudentController {
+@RequestMapping("student")
+public class cntStudent {
 	
 	@Autowired
 	@Qualifier("studentService")
@@ -28,6 +28,14 @@ public class StudentController {
 	/*
 	 * This method will list all existing students.
 	 */
+	@RequestMapping(value = { "/info" }, method = RequestMethod.GET)
+	public String studentInfo(ModelMap model){
+		Student student = service.findById(1);
+		model.addAttribute("student", student);
+		//Address address	= 
+		return "studentInfo";
+	}
+	
 	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
 	public String listStudents(ModelMap model) {
 
@@ -61,7 +69,7 @@ public class StudentController {
 
 		service.saveStudent(student);
 
-		model.addAttribute("success", "Student " + student.getFullName() + " registered successfully");
+		model.addAttribute("success", "Student " + student.getFirstName() + " registered successfully");
 		return "success";
 	}
 
@@ -91,7 +99,7 @@ public class StudentController {
 
 		service.updateStudent(student);
 
-		model.addAttribute("success", "Student " + student.getFullName()	+ " updated successfully");
+		model.addAttribute("success", "Student " + student.getFirstName()	+ " updated successfully");
 		return "success";
 	}
 

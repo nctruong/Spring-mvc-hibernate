@@ -5,19 +5,29 @@ import javax.validation.constraints.Size;
 public class Student {
 	private int id;
 	
-	@Size(min=3, max=50)
-	private String fullName;
+	@Size(min=3, max=30)
+	private String firstName;
+	
+	@Size(min=3, max=30)
+	private String lastName;
+	
+	@Size(min=1, max=3)
+	private String age;
 	
 	@Size(min=1, max=1)
 	private String sex;
 	
-	@Size(min=10, max=100)
-	private String address;
+	@Size(min=10, max=30)
+	private String username;
 
+	@Size(min=10, max=30)
+	private String password;
+	
 	public Student() {
 		super();
 	}
-
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -26,32 +36,74 @@ public class Student {
 		this.id = id;
 	}
 
-	public String getFullName() {
-		return fullName;
+
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String getAge() {
+		return age;
+	}
+
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
 
 	public String getSex() {
 		return sex;
 	}
 
+
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
 
-	public String getAddress() {
-		return address;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", fullName=" + fullName + ", sex=" + sex + ", address=" + address + "]";
+		return "Student [id=" + id + 
+				"], fullName=" + firstName + lastName + 
+				", sex=" + sex + 
+				", age=" + age +
+				", username=" + username
+				+ "]";
 	}
 }
