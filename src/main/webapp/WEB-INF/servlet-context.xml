@@ -28,6 +28,8 @@
 		<property name="mappingResources">
 			<list>
 				<value>student.hbm.xml</value>
+				<value>address.hbm.xml</value>
+				<value>score.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -37,6 +39,7 @@
 				</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
 			</props>
 		</property>
 	</bean>    

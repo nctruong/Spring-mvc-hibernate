@@ -14,7 +14,7 @@
         <property name="lastName" type="string">
             <column name="lastName" />
         </property>
-        <property name="age" type="string">
+        <property name="age" type="int">
             <column name="age" />
         </property>
         <property name="sex" type="string">
@@ -26,5 +26,19 @@
         <property name="password" type="string">
             <column name="password" />
         </property>
+        
+        <one-to-one name="address" 
+        				class="model.Address" 
+        					cascade="save-update">
+        </one-to-one>
+       
+        <list name="scores" table="score" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_id" not-null="true" />
+            </key>
+            <index column="score_id"></index>
+            
+            <one-to-many class="model.Score" />
+        </list>
     </class>
 </hibernate-mapping>

@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,7 +13,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import model.Score;
 import model.Student;
 import service.StudentService;
 
@@ -29,10 +32,24 @@ public class cntStudent {
 	 * This method will list all existing students.
 	 */
 	@RequestMapping(value = { "/info" }, method = RequestMethod.GET)
-	public String studentInfo(ModelMap model){
-		Student student = service.findById(1);
+	public String studentInfo(@RequestParam("student_id") int student_id, ModelMap model){
+		// scoreForm
+		Score scoreForm	= new Score();
+		model.addAttribute("scoreForm", scoreForm);
+		
+		Student student = service.findById(student_id);
 		model.addAttribute("student", student);
-		//Address address	= 
+		model.addAttribute("address", student.getAddress());
+				
+		
+		List<Score> scores  = student.getScores();
+		List<Score> modelScores	= new ArrayList<Score>(); 
+		for(Score score:scores){
+			if (score != null){
+				modelScores.add(score);
+			}
+		}
+		model.addAttribute("scores", modelScores);
 		return "studentInfo";
 	}
 	
